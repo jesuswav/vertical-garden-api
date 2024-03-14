@@ -10,7 +10,7 @@ const monitoringRoutes = require('./routes/monitoring')
 
 const app = express()
 const PORT = process.env.port || 3000
-const LAN_IP = '192.168.0.106'
+const LAN_IP = '172.31.99.106'
 
 // -- Middlewares
 app.use(express.json())
