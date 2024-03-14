@@ -9,18 +9,19 @@ const RisksSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  // statusVale: {
-  //   type: Boolean,
-  //   required: true,
-  // },
   spentWater: {
     type: Number,
     required: true,
   },
   registerDate: {
-    type: String,
-    required: true,
+    type: Date,
+    default: Date.now,
   },
 })
 
 module.exports = mongoose.model('Risk', RisksSchema)
+
+// statusVale: {
+//   type: Boolean,
+//   required: true,
+// },

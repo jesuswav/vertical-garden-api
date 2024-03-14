@@ -40,7 +40,7 @@ router.put('/monitoring/:id', (req, res) => {
     .catch((error) => res.json({ message: error }))
 })
 
-// Delete one user
+// Delete one register
 router.delete('/monitoring', (req, res) => {
   const { id } = req.params
   MonitoringSchema.deleteOne({ _id: id })
