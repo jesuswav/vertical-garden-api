@@ -7,6 +7,7 @@ const risksRoutes = require('./routes/risks')
 const plantsRoutes = require('./routes/plants')
 const flowerpotRoutes = require('./routes/flowerpots')
 const monitoringRoutes = require('./routes/monitoring')
+const vale = require('./routes/vale')
 
 const app = express()
 const PORT = process.env.port || 3000
@@ -20,7 +21,8 @@ app.use(
   risksRoutes,
   plantsRoutes,
   flowerpotRoutes,
-  monitoringRoutes
+  monitoringRoutes,
+  vale
 )
 
 app.get('/', (req, res) => {
