@@ -11,7 +11,7 @@ const vale = require('./routes/vale')
 
 const app = express()
 const PORT = process.env.port || 3000
-const LAN_IP = '192.168.0.106'
+// const LAN_IP = '172.31.98.74'
 
 // -- Middlewares
 app.use(express.json())
@@ -34,6 +34,10 @@ mongoose
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((error) => console.error(error))
 
-app.listen(PORT, LAN_IP, () =>
-  console.log(`Servidor API corriendo en http://${LAN_IP}:${PORT}`)
+// app.listen(PORT, LAN_IP, () =>
+//   console.log(`Servidor API corriendo en http://${LAN_IP}:${PORT}`)
+// )
+
+app.listen(PORT, () =>
+  console.log(`Servidor API corriendo en el puerto: ${PORT}`)
 )

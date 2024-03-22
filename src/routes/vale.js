@@ -3,7 +3,7 @@ const express = require('express')
 
 const router = express.Router()
 
-let valeState = ''
+let valeState = 'false'
 
 router.post('/vale', (req, res) => {
   const valeData = req.query.valeState
