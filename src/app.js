@@ -8,6 +8,8 @@ const plantsRoutes = require('./routes/plants')
 const flowerpotRoutes = require('./routes/flowerpots')
 const monitoringRoutes = require('./routes/monitoring')
 const vale = require('./routes/vale')
+const login = require('./routes/login')
+const getToken = require('./routes/getToken')
 
 const app = express()
 const PORT = process.env.port || 3000
@@ -22,7 +24,9 @@ app.use(
   plantsRoutes,
   flowerpotRoutes,
   monitoringRoutes,
-  vale
+  vale,
+  login,
+  getToken
 )
 
 app.get('/', (req, res) => {
