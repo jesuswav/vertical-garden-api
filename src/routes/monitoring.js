@@ -11,6 +11,17 @@ router.get('/monitoring', (req, res) => {
     .catch((error) => res.json({ message: error }))
 })
 
+router.get('/last-monitoring', async (req, res) => {
+  try {
+    const lastRegister = await MonitoringSchema.findOne()
+      .sort({ _id: -1 })
+      .exec()
+    res.json(lastRegister)
+  } catch (err) {
+    res.status(500).json({ error: err.message })
+  }
+})
+
 // Get one register by id
 router.get('/monitoring/:id', (req, res) => {
   const { id } = req.params

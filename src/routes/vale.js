@@ -8,7 +8,7 @@ let valeState = 'false'
 router.post('/vale', (req, res) => {
   const valeData = req.query.valeState
   console.log('Valor req', valeData)
-  const booleanValue = valeData === 'true' ? true : false;
+  const booleanValue = valeData === 'true' ? true : false
   try {
     valeState = booleanValue
     console.log('Valor', valeState)
@@ -27,7 +27,7 @@ router.get('/vale', (req, res) => {
   // Envía datos al cliente cada segundo
   const intervalId = setInterval(() => {
     console.log(valeState)
-    res.write(`data: ${valeState}\n\n`) // Envía el valor al cliente
+    res.json(valeState) // Envía el valor al cliente
   }, 2000)
 
   // Maneja la desconexión del cliente
