@@ -7,8 +7,121 @@ const router = express.Router()
 // Get all registers
 router.get('/monitoring', (req, res) => {
   MonitoringSchema.find()
-    .then((data) => res.json(data))
+    .then((data) => {
+      res.json(data)
+    })
     .catch((error) => res.json({ message: error }))
+})
+
+router.get('/monitoring/chart', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(3)
+    .exec()
+    .then((data) => {
+      let chartData = []
+      data.map((item) => {
+        chartData.push({
+          date: item.registerDate,
+          humidity: item.humidity,
+          floorHumidity: item.floorHumidity,
+          temperature: item.temperature,
+          coTwo: item.coTwo,
+        })
+      })
+      res.json(chartData)
+    })
+})
+
+router.get('/monitoring/chart/temperature', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(15)
+    .exec()
+    .then((data) => {
+      let chartData = []
+      data.map((item) => {
+        chartData.push({
+          date: item.registerDate,
+          temperature: item.temperature,
+        })
+      })
+      res.json(chartData)
+    })
+})
+
+router.get('/monitoring/chart/humidity', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(15)
+    .exec()
+    .then((data) => {
+      let chartData = []
+      data.map((item) => {
+        chartData.push({
+          date: item.registerDate,
+          humidity: item.humidity,
+        })
+      })
+      res.json(chartData)
+    })
+})
+
+router.get('/monitoring/chart/floor-humidity', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(15)
+    .exec()
+    .then((data) => {
+      let chartData = []
+      data.map((item) => {
+        chartData.push({
+          date: item.registerDate,
+          floorHumidity: item.floorHumidity,
+        })
+      })
+      res.json(chartData)
+    })
+})
+
+router.get('/monitoring/chart/coTwo', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(15)
+    .exec()
+    .then((data) => {
+      let chartData = []
+      data.map((item) => {
+        chartData.push({
+          date: item.registerDate,
+          coTwo: item.coTwo,
+        })
+      })
+      res.json(chartData)
+    })
+})
+
+router.get('/monitoring/chart-data', (req, res) => {
+  MonitoringSchema.find()
+    .sort({ registerDate: -1 })
+    .limit(30)
+    .exec()
+    .then((data) => {
+      console.log(data)
+      let chartData = {
+        humidity: [],
+        floorHumidity: [],
+        temperature: [],
+        coTwo: [],
+      }
+      data.map((item) => {
+        chartData.humidity.push(item.temperature)
+        chartData.floorHumidity.push(item.floorHumidity)
+        chartData.temperature.push(item.temperature)
+        chartData.coTwo.push(item.coTwo)
+      })
+      res.json(chartData)
+    })
 })
 
 router.get('/last-monitoring', async (req, res) => {
