@@ -10,6 +10,7 @@ const monitoringRoutes = require('./routes/monitoring')
 const vale = require('./routes/vale')
 const login = require('./routes/login')
 const getToken = require('./routes/getToken')
+const time = require('./routes/time')
 
 const app = express()
 const PORT = process.env.port || 3000
@@ -28,7 +29,8 @@ app.use(
   monitoringRoutes,
   vale,
   login,
-  getToken
+  getToken,
+  time
 )
 
 app.get('/', (req, res) => {
