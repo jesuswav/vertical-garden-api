@@ -20,7 +20,7 @@ router.post('/aperture-time', (req, res) => {
   apertureTime.hour = hour
   apertureTime.minute = minute
 
-  console.log(apertureTime)
+  // console.log(apertureTime)
 
   res.send(apertureTime)
 })
@@ -38,7 +38,7 @@ router.post('/close-time', (req, res) => {
   closeTime.hour = hour
   closeTime.minute = minute
 
-  console.log(closeTime)
+  // console.log(closeTime)
 
   res.send(closeTime)
 })
