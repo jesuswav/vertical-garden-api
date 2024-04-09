@@ -18,6 +18,10 @@ const MonitoringSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  flowWater: {
+    type: Number,
+    required: true,
+  },
   registerDate: {
     type: Date,
     default: Date.now,

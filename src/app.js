@@ -10,6 +10,7 @@ const monitoringRoutes = require('./routes/monitoring')
 const vale = require('./routes/vale')
 const login = require('./routes/login')
 const getToken = require('./routes/getToken')
+const time = require('./routes/time')
 
 const app = express()
 const PORT = process.env.port || 3000
@@ -28,7 +29,8 @@ app.use(
   monitoringRoutes,
   vale,
   login,
-  getToken
+  getToken,
+  time
 )
 
 app.get('/', (req, res) => {
@@ -40,10 +42,10 @@ mongoose
   .then(() => console.log('Connected to MongoDB Atlas'))
   .catch((error) => console.error(error))
 
-// app.listen(PORT, LAN_IP, () =>
-//   console.log(`Servidor API corriendo en http://${LAN_IP}:${PORT}`)
-// )
-
-app.listen(PORT, () =>
-  console.log(`Servidor API corriendo en el puerto: ${PORT}`)
+app.listen(PORT, LAN_IP, () =>
+  console.log(`Servidor API corriendo en http://${LAN_IP}:${PORT}`)
 )
+
+// app.listen(PORT, () =>
+//   console.log(`Servidor API corriendo en el puerto: ${PORT}`)
+// )
